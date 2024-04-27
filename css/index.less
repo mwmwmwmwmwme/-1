@@ -1,0 +1,443 @@
+@color_w: #fff;
+@color_b: #000;
+
+/*字体声明*/
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?k4h0k3');
+    src: url('../fonts/icomoon.eot?k4h0k3#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?k4h0k3') format('truetype'),
+        url('../fonts/icomoon.woff?k4h0k3') format('woff'),
+        url('../fonts/icomoon.svg?k4h0k3#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none
+}
+
+body {
+    background-color: rgb(204, 193, 178);
+    background-size: cover;
+}
+
+.container {
+    width: 1200px;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    position: relative;
+    width: 1000px;
+    height: 500px;
+    background-color: rgb(65, 28, 99);
+    display: flex;
+    flex-direction: column;
+
+    .box_top {
+        position: relative;
+        flex: 2;
+        background-color: rgb(105, 86, 123);
+
+        // overflow: hidden;
+        .box_top_front,
+        .box_top_back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        // 顶部正面
+        .box_top_front {
+            z-index: 2;
+            padding: 30px;
+            // background-color: aquamarine;
+            display: flex;
+
+            .front_l,
+            .front_r {
+                flex: 1;
+            }
+
+            // 左边
+            .front_l {
+                // background-color: chocolate;
+                display: flex;
+                flex-direction: column;
+
+                .words1,
+                .words2,
+                .words3 {
+                    flex: 1;
+                }
+
+                .words1 {
+                    color: @color_w;
+                    font-size: 5px;
+                }
+
+                .words2 {
+                    position: relative;
+                    width: 250px;
+                    overflow: hidden;
+
+                    // 字体图片
+                    .word_pics {
+                        position: absolute;
+                        left: 0;
+                        width: 300%;
+                        height: 100%;
+                        // background-color: rgb(126, 136, 78);
+                        display: flex; // 必需，让div可以同一行
+                        transition: .2s;
+
+                        .word_pic {
+                            width: 250px;
+                            text-align: left;
+                            line-height: 91.11px;
+                            font-size: 25px;
+                            color: @color_w;
+
+                            h1 {
+                                // 字体倾斜
+                                font-style: italic;
+                            }
+                        }
+
+                        // 文字划线
+                        .delete {
+                            text-decoration: line-through;
+                        }
+                    }
+                }
+
+                .words3 {
+                    p {
+                        color: @color_w;
+                        font-size: 12px;
+                    }
+
+                    .goto {
+                        width: 250px;
+                        height: 50px;
+                        // background-color: blueviolet;
+                        margin-top: 10px;
+
+                        .goto1,
+                        .goto2 {
+                            float: left;
+                            width: 15px;
+                            height: 15px;
+                            line-height: 15px;
+                            border-radius: 50%;
+                            background-color: @color_w;
+                            margin-right: 10px;
+
+                            a {
+                                font-family: 'icomoon';
+                                display: block;
+                                text-align: center;
+                                font-size: 8px;
+                                color: @color_b;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 右边
+            .front_r {
+                position: relative;
+
+                // background-color: coral;
+                .words_r_t {
+                    float: right;
+                    width: 246px;
+                    height: 20px;
+
+                    // background-color: rgb(42, 173, 108);
+                    .words_r_t1,
+                    .words_r_t2 {
+                        float: left;
+                        // 不给宽度，让字体自撑
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-right: 13px;
+                    }
+
+                    .words_r_t1 {
+                        font-size: 12px;
+                        color: @color_w;
+                        cursor: pointer;
+                    }
+
+                    .words_r_t2 {
+                        a {
+                            font-family: 'icomoon';
+                            font-size: 12px;
+                            color: @color_w;
+                        }
+                    }
+                }
+
+                .words_r_r {
+                    // 定位定到右边
+                    position: absolute;
+                    left: 355px;
+                    top: 150px;
+                    width: 200px;
+                    height: 20px;
+                    // background-color: rgb(24, 94, 59);
+                    display: flex;
+                    // 旋转九十度
+                    transform: rotate(90deg);
+
+                    .words_r_r1 {
+                        flex: 1;
+                        width: 80px;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 12px;
+                        color: @color_w;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        // 顶部背面轮播图
+        .box_top_back {
+            // position: absolute;
+            // z-index: 1;
+            width: 1000px;
+            background-color: rgb(73, 194, 198);
+            overflow: hidden;
+
+            .bgs {
+                width: 300%; // 根据图片数量定义
+                height: 100%;
+                position: absolute;
+                left: 0;
+                display: flex; // 必需
+                transition: .2s; // 缓慢过渡
+
+                .bg {
+                    width: 100%;
+                    background-size: cover;
+                }
+
+                // 孩子选择器添加背景图
+                .bg:nth-child(1) {
+                    background-image: url(../images/bg1.png);
+                }
+
+                .bg:nth-child(2) {
+                    background-image: url(../images/bg2.png);
+                }
+
+                .bg:nth-child(3) {
+                    background-image: url(../images/bg3.png);
+                }
+            }
+        }
+    }
+
+    .box_bottom {
+        flex: 1;
+        background-color: black;
+
+        .bottom_l,
+        .bottom_r {
+            width: 50%;
+            height: 100%;
+            float: left;
+        }
+
+        /* 左下角部分开始 */
+        .bottom_l {
+            background-color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+
+            .bottom_l1,
+            .bottom_l3 {
+                flex: 1;
+                width: 100%;
+            }
+
+            .bottom_l1 span {
+                font-family: 'icomoon';
+                cursor: pointer;
+                font-size: 12px;
+                color: rgb(164, 164, 164);
+            }
+
+            .bottom_l2 {
+                flex: 2.5;
+                display: flex;
+
+                .item {
+                    flex: 1;
+                    height: 100%;
+                    cursor: pointer;
+
+                    .item_bottom {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .bottom_l3 ul li {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                float: left;
+                margin: 7px 8px 0;
+                background-color: black;
+            }
+        }
+
+        // 左下角部分结束
+        // 右下角部分开始
+        .bottom_r {
+            background-color: rgb(63, 59, 59);
+
+            // 用于定位 smallbox1
+            .bottom_r_l {
+                // 需要浮动，不然 div单独一行
+                float: left;
+                width: 50%;
+                height: 100%;
+                // background-color: rgb(148, 148, 99);
+            }
+
+            .bottom_r_r {
+                float: left;
+                width: 50%;
+                height: 100%;
+                padding: 20px;
+
+                span {
+                    font-size: 12px; // span 最小12px？
+                    color: rgb(192, 191, 191);
+                }
+
+                .small_words {
+                    position: relative;
+                    width: 210px;
+                    height: 50px;
+                    overflow: hidden;
+                    margin: 13px 0;
+
+                    .small_words_pics {
+                        position: absolute;
+                        left: 0;
+                        width: 300%;
+                        height: 50px;
+                        display: flex; // 必需
+                        transition: .2s;
+
+                        // background-color: rgb(150, 66, 66);
+                        .small_words_pic {
+                            width: 210px;
+                            height: 50px;
+                            font-size: 12px;
+                            color: @color_w;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        // 右下角部分结束
+    }
+
+    .smallbox1 {
+        /* 定位到相应位置 */
+        position: absolute;
+        z-index: 3;
+        left: 500px;
+        top: 300px;
+        // 5:4
+        width: 250px;
+        height: 200px;
+        overflow: hidden;
+
+        // background-color: rgb(231, 185, 36);
+        .pics {
+            width: 300%; // 根据图片数量定义
+            height: 100%;
+            position: absolute;
+            left: 0;
+            display: flex; // 必需
+            transition: .2s;
+
+            .pic {
+                width: 100%;
+                background-size: cover;
+            }
+
+            // 孩子选择器添加背景图
+            .pic:nth-child(1) {
+                background-image: url(../images/bg1-1.png);
+            }
+
+            .pic:nth-child(2) {
+                background-image: url(../images/bg2-2.png);
+            }
+
+            .pic:nth-child(3) {
+                background-image: url(../images/bg3-3.png);
+            }
+        }
+    }
+
+    .smallbox2 {
+        position: absolute;
+        left: 750px;
+        top: 300px;
+        width: 90px;
+        height: 33px;
+        z-index: 3;
+        background-color: rgb(63, 59, 59);
+        padding: 0 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .pre,
+        .next {
+            flex: 1;
+            float: left;
+            font-size: 12px;
+            text-align: center;
+
+            a {
+                color: @color_w;
+            }
+        }
+    }
+}
